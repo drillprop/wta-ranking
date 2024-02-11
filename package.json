@@ -21,7 +21,9 @@
   ],
   "dependencies": {
     "@raycast/api": "^1.49.3",
-    "@raycast/utils": "^1.11.1"
+    "@raycast/utils": "^1.11.1",
+    "country-code-emoji": "^2.3.0",
+    "country-iso-3-to-2": "^1.1.1"
   },
   "devDependencies": {
     "@raycast/eslint-config": "1.0.5",
