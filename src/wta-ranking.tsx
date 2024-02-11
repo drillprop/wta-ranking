@@ -28,7 +28,7 @@ const WtaRanking = () => {
   };
 
   return (
-    <List navigationTitle="Live wta ranking" isLoading={isLoading} filtering={false} isShowingDetail={showDetails}>
+    <List navigationTitle="Live wta ranking" isLoading={isLoading} isShowingDetail={showDetails}>
       <List.Section>
         {players?.map((player, idx) => (
           <List.Item
