@@ -53,7 +53,7 @@ const WtaRanking = () => {
                     <List.Item.Detail.Metadata.Separator />
                     <List.Item.Detail.Metadata.Label title="Current ranking" text={player.ranking.toString()} />
                     <List.Item.Detail.Metadata.Label
-                      title="Ranking change from previous release."
+                      title="Ranking change from previous release"
                       text={player.rankingChange?.toString() || "0"}
                     />
                     <List.Item.Detail.Metadata.Label title="Points" text={player.points?.toString()} />
@@ -68,11 +68,11 @@ const WtaRanking = () => {
                       text={player.currentTournament || "-"}
                     />
                     <List.Item.Detail.Metadata.Label
-                      title="Next points in tournament"
+                      title="Next points(if player wins next match)"
                       text={player.next?.toString() || "-"}
                     />
                     <List.Item.Detail.Metadata.Label
-                      title="Max points in tournament"
+                      title="Max points(if player wins tournament)"
                       text={player.max?.toString() || "-"}
                     />
                   </List.Item.Detail.Metadata>
