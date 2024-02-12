@@ -1,7 +1,7 @@
 import { Action, ActionPanel, List } from "@raycast/api";
 import { useFetch } from "@raycast/utils";
-import { getCountryEmoji } from "./utils/getCountryEmoji";
 import { useState } from "react";
+import { getCountryInfo } from "./utils/getCountryInfo";
 
 type Player = {
 	ranking: number;
@@ -42,7 +42,7 @@ const WtaRanking = () => {
 							</ActionPanel>
 						}
 						key={idx}
-						title={`${player.ranking}. ${getCountryEmoji(player.country)} ${player.name}`}
+						title={`${player.ranking}. ${getCountryInfo(player.country).emoji} ${player.name}`}
 						subtitle={player.country}
 						accessories={getAccesories(player)}
 						detail={
@@ -51,7 +51,7 @@ const WtaRanking = () => {
 									<List.Item.Detail.Metadata>
 										<List.Item.Detail.Metadata.Label title={player.name} />
 										<List.Item.Detail.Metadata.Label title="Age" text={player.age.toString()} />
-										<List.Item.Detail.Metadata.Label title="Country" text={player.country} />
+										<List.Item.Detail.Metadata.Label title="Country" text={getCountryInfo(player.country).name} />
 										<List.Item.Detail.Metadata.Separator />
 										<List.Item.Detail.Metadata.Label title="Current ranking" text={player.ranking.toString()} />
 										<List.Item.Detail.Metadata.Label
