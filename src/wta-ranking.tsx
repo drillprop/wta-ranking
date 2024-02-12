@@ -1,6 +1,7 @@
 import { Action, ActionPanel, List } from "@raycast/api";
-import { useCachedState, useFetch } from "@raycast/utils";
+import { useFetch } from "@raycast/utils";
 import { getCountryEmoji } from "./utils/getCountryEmoji";
+import { useState } from "react";
 
 type Player = {
   ranking: number;
@@ -18,7 +19,7 @@ type Player = {
 
 const WtaRanking = () => {
   const { data: players, isLoading } = useFetch<Player[]>("http://127.0.0.1:8080/");
-  const [showDetails, setShowDetails] = useCachedState("show-details", false);
+  const [showDetails, setShowDetails] = useState(false);
 
   const getAccesories = (player: Player): List.Item.Accessory[] | null | undefined => {
     if (showDetails) {
@@ -48,6 +49,7 @@ const WtaRanking = () => {
               <List.Item.Detail
                 metadata={
                   <List.Item.Detail.Metadata>
+                    <List.Item.Detail.Metadata.Label title={player.name} />
                     <List.Item.Detail.Metadata.Label title="Age" text={player.age.toString()} />
                     <List.Item.Detail.Metadata.Label title="Country" text={player.country} />
                     <List.Item.Detail.Metadata.Separator />
