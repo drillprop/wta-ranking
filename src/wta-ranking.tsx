@@ -18,7 +18,7 @@ type Player = {
 };
 
 const WtaRanking = () => {
-	const { data: players, isLoading } = useFetch<Player[]>("http://127.0.0.1:8080/");
+	const { data: players, isLoading } = useFetch<Player[]>("http://127.0.0.1:8080/live-ranking");
 	const [showDetails, setShowDetails] = useState(false);
 
 	const getAccesories = (player: Player): List.Item.Accessory[] | null | undefined => {
