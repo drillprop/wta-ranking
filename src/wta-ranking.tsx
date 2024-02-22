@@ -1,9 +1,10 @@
 import { Action, ActionPanel, Color, List } from "@raycast/api";
 import { useFetch } from "@raycast/utils";
 import { useState } from "react";
-import { getCountryInfo } from "./utils/getCountryInfo";
 import { ListTag } from "./components/ListTag";
+import { getCountryInfo } from "./utils/getCountryInfo";
 import { getSignedNumberNotationInString } from "./utils/getSignedNumberNotation";
+import { normalizeString } from "./utils/normalizeString";
 
 type Player = {
 	ranking: number;
@@ -23,6 +24,7 @@ type Player = {
 const WtaRanking = () => {
 	const { data: players, isLoading } = useFetch<Player[]>("http://127.0.0.1:8080/live-ranking");
 	const [showDetails, setShowDetails] = useState(false);
+	const [searchInput, setSearchInput] = useState<string>();
 
 	const getRankingColor = (num: number) => {
 		if (num === 0) {
@@ -51,10 +53,23 @@ const WtaRanking = () => {
 		];
 	};
 
+	const filteredPlayers = players?.filter((player) => {
+		const normalizedName = normalizeString(player.name);
+		const normalizedSearch = normalizeString(searchInput || "");
+		return normalizedName.includes(normalizedSearch);
+	});
+
 	return (
-		<List navigationTitle="Live wta ranking" isLoading={isLoading} isShowingDetail={showDetails}>
-			<List.Section>
-				{players?.map((player, idx) => (
+		<List
+			navigationTitle="Live wta ranking"
+			isLoading={isLoading}
+			searchBarPlaceholder="Search player"
+			isShowingDetail={showDetails}
+			filtering={false}
+			onSearchTextChange={setSearchInput}
+		>
+			<List.Section title="Live WTA ranking">
+				{filteredPlayers?.map((player, idx) => (
 					<List.Item
 						actions={
 							<ActionPanel>
