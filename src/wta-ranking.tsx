@@ -5,6 +5,7 @@ import { getCountryInfo } from "./utils/getCountryInfo";
 
 type Player = {
 	ranking: number;
+	careerHigh: number;
 	name: string;
 	age: number;
 	points: number;
@@ -54,6 +55,9 @@ const WtaRanking = () => {
 										<List.Item.Detail.Metadata.Label title="Country" text={getCountryInfo(player.country).name} />
 										<List.Item.Detail.Metadata.Separator />
 										<List.Item.Detail.Metadata.Label title="Current ranking" text={player.ranking.toString()} />
+										<List.Item.Detail.Metadata.Label title="Career high" text={player.careerHigh.toString()} />
+										<List.Item.Detail.Metadata.Label title="Country rank" text={player.countryRank.toString()} />
+										<List.Item.Detail.Metadata.Separator />
 										<List.Item.Detail.Metadata.Label
 											title="Ranking change from previous release"
 											text={player.rankingChange?.toString() || "0"}
@@ -63,7 +67,6 @@ const WtaRanking = () => {
 											title="Points change from previous release"
 											text={player.pointsChange?.toString() || "0"}
 										/>
-										<List.Item.Detail.Metadata.Label title="Country rank" text={player.countryRank.toString()} />
 										<List.Item.Detail.Metadata.Separator />
 										<List.Item.Detail.Metadata.Label
 											title="Current tournament"
