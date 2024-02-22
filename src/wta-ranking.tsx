@@ -43,12 +43,16 @@ const WtaRanking = () => {
 			return null;
 		}
 		return [
-			{
-				tag: {
-					value: getSignedNumberNotationInString(player.pointsChange || 0),
-					color: getRankingColor(player.pointsChange || 0),
-				},
-			},
+			...(player.pointsChange
+				? [
+						{
+							tag: {
+								value: getSignedNumberNotationInString(player.pointsChange),
+								color: getRankingColor(player.pointsChange),
+							},
+						},
+				  ]
+				: []),
 			{ text: `Points: ${player.points.toString()}` },
 		];
 	};
@@ -94,7 +98,7 @@ const WtaRanking = () => {
 										<List.Item.Detail.Metadata.Label title="Age" text={player.age.toString()} />
 										<List.Item.Detail.Metadata.Label title="Points" text={player.points?.toString()} />
 										<List.Item.Detail.Metadata.Separator />
-										<ListTag title="Current ranking" text={player.ranking.toString()} color={Color.Blue} />
+										<ListTag title="Current ranking" text={player.ranking.toString()} color={Color.SecondaryText} />
 										<ListTag
 											title="Career high"
 											text={player.careerHigh.toString()}
