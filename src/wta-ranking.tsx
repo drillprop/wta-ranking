@@ -1,4 +1,4 @@
-import { Action, ActionPanel, List } from "@raycast/api";
+import { Action, ActionPanel, Color, List } from "@raycast/api";
 import { useFetch } from "@raycast/utils";
 import { useState } from "react";
 import { getCountryInfo } from "./utils/getCountryInfo";
@@ -54,9 +54,21 @@ const WtaRanking = () => {
 										<List.Item.Detail.Metadata.Label title="Age" text={player.age.toString()} />
 										<List.Item.Detail.Metadata.Label title="Country" text={getCountryInfo(player.country).name} />
 										<List.Item.Detail.Metadata.Separator />
-										<List.Item.Detail.Metadata.Label title="Current ranking" text={player.ranking.toString()} />
-										<List.Item.Detail.Metadata.Label title="Career high" text={player.careerHigh.toString()} />
-										<List.Item.Detail.Metadata.Label title="Country rank" text={player.countryRank.toString()} />
+										<List.Item.Detail.Metadata.TagList title="Current ranking">
+											<List.Item.Detail.Metadata.TagList.Item text={player.ranking.toString()} color={Color.Blue} />
+										</List.Item.Detail.Metadata.TagList>
+										<List.Item.Detail.Metadata.TagList title="Career high">
+											<List.Item.Detail.Metadata.TagList.Item
+												text={player.careerHigh.toString()}
+												color={player.ranking === player.careerHigh ? Color.Yellow : Color.SecondaryText}
+											/>
+										</List.Item.Detail.Metadata.TagList>
+										<List.Item.Detail.Metadata.TagList title="Country rank">
+											<List.Item.Detail.Metadata.TagList.Item
+												text={player.countryRank.toString()}
+												color={player.countryRank === 1 ? Color.Yellow : Color.SecondaryText}
+											/>
+										</List.Item.Detail.Metadata.TagList>
 										<List.Item.Detail.Metadata.Separator />
 										<List.Item.Detail.Metadata.Label
 											title="Ranking change from previous release"
