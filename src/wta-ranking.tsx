@@ -5,6 +5,7 @@ import { ListTag } from "./components/ListTag";
 import { getCountryInfo } from "./utils/getCountryInfo";
 import { getSignedNumberNotationInString } from "./utils/getSignedNumberNotation";
 import { normalizeString } from "./utils/normalizeString";
+import { API_URL } from "./config/env";
 
 type Player = {
 	ranking: number;
@@ -22,7 +23,7 @@ type Player = {
 };
 
 const WtaRanking = () => {
-	const { data: players, isLoading } = useFetch<Player[]>("http://127.0.0.1:8080/live-ranking");
+	const { data: players, isLoading } = useFetch<Player[]>(`${API_URL}/live-ranking`);
 	const [showDetails, setShowDetails] = useState(false);
 	const [searchInput, setSearchInput] = useState<string>();
 	const [selectedPlayerId, setSelectedPlayerId] = useState<string>();
