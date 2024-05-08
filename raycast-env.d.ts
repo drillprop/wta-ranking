@@ -13,12 +13,16 @@ type ExtensionPreferences = {}
 declare type Preferences = ExtensionPreferences
 
 declare namespace Preferences {
-  /** Preferences accessible in the `wta-ranking` command */
-  export type WtaRanking = ExtensionPreferences & {}
+  /** Preferences accessible in the `wta-live-ranking` command */
+  export type WtaLiveRanking = ExtensionPreferences & {}
+  /** Preferences accessible in the `wta-race` command */
+  export type WtaRace = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
-  /** Arguments passed to the `wta-ranking` command */
-  export type WtaRanking = {}
+  /** Arguments passed to the `wta-live-ranking` command */
+  export type WtaLiveRanking = {}
+  /** Arguments passed to the `wta-race` command */
+  export type WtaRace = {}
 }
 
