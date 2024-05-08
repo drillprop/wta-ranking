@@ -1,7 +1,7 @@
 {
 	"$schema": "https://www.raycast.com/schemas/extension.json",
-	"name": "wta",
-	"title": "WTA Rankings",
+	"name": "wta-rankings",
+	"title": "WTA Tennis Rankings",
 	"description": "Projected WTA Women's Tennis rankings for the upcoming week with forecasts.",
 	"icon": "icon.png",
 	"author": "drillprop",
@@ -15,14 +15,14 @@
 		{
 			"name": "wta-live-ranking",
 			"icon": "icon.png",
-			"title": "Live WTA ranking",
+			"title": "Show Live WTA Ranking",
 			"description": "Shows live Women's Tennis Association ranking",
 			"mode": "view"
 		},
 		{
 			"name": "wta-race",
 			"icon": "icon.png",
-			"title": "Live WTA Race",
+			"title": "Show Live WTA Race",
 			"description": "Shows live Women's Tennis Association race ranking",
 			"mode": "view"
 		}
