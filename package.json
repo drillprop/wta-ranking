@@ -1,9 +1,9 @@
 {
 	"$schema": "https://www.raycast.com/schemas/extension.json",
 	"name": "wta",
-	"title": "WTA Ranking",
-	"description": "",
-	"icon": "command-icon.png",
+	"title": "WTA Rankings",
+	"description": "Projected WTA Women's Tennis rankings for the upcoming week with forecasts.",
+	"icon": "icon.png",
 	"author": "drillprop",
 	"categories": [
 		"Other",
@@ -13,9 +13,17 @@
 	"license": "MIT",
 	"commands": [
 		{
-			"name": "wta-ranking",
-			"title": "WTA ranking",
-			"description": "Shows WTA ranking",
+			"name": "wta-live-ranking",
+			"icon": "icon.png",
+			"title": "Live WTA ranking",
+			"description": "Shows live Women's Tennis Association ranking",
+			"mode": "view"
+		},
+		{
+			"name": "wta-race",
+			"icon": "icon.png",
+			"title": "Live WTA Race",
+			"description": "Shows live Women's Tennis Association race ranking",
 			"mode": "view"
 		}
 	],
